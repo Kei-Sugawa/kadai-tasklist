@@ -5,6 +5,14 @@
         <h2>タスク新規作成ページ</h2>
 
         <form method="POST" action="${pageContext.request.contextPath}/create">
+            <c:if test="${errors != null}">
+                <div id="flush_error">
+                    入力内容にエラーがあります。<br />
+                    <c:forEach var="error" items="${errors}">
+                        ・<c:out value="${error}" /><br />
+                    </c:forEach>
+                </div>
+            </c:if>
             <label for="cotent">タスク</label><br />
             <input type="text" name="content" value="${task.content}" />
             <br /><br />
