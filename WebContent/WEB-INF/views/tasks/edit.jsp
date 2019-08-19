@@ -7,7 +7,12 @@
             <h2>id : ${task.id} のタスク編集ページ</h2>
 
             <form method="POST" action="${pageContext.request.contextPath}/update">
-                <c:import url="_form.jsp" />
+                <label for="cotent">タスク</label><br />
+                <input type="text" name="content" value="${task.content}" />
+                <br /><br />
+
+                <input type="hidden" name="_token" value="${_token}" />
+                <button type="submit">投稿</button>
             </form>
 
             <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
